@@ -13,7 +13,7 @@ import { ClockCard, WeatherCard, GithubCardLink } from "@/components/about/Bento
 import LocalGreetingCard from "@/components/about/LocalGreetingCard";
 import TimeOverlapCard from "@/components/about/TimeOverlapCard";
 
-gsap.registerPlugin(ScrollTrigger, useGSAP);
+if (typeof window !== "undefined") gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 type AboutBentoProps = {
   contributionYear: number;

@@ -11,7 +11,7 @@ import { useEffect, useRef, useState } from "react";
 import useReducedMotion from "@/hooks/useReducedMotion";
 import { introLoaderCompleteEvent } from "../home/IntroLoader";
 
-gsap.registerPlugin(useGSAP, SplitText);
+if (typeof window !== "undefined") gsap.registerPlugin(useGSAP, SplitText);
 
 export default function Header() {
   const [hasEntered, setHasEntered] = useState(false);

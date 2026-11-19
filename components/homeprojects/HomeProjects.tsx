@@ -11,7 +11,7 @@ import useReducedMotion from "@/hooks/useReducedMotion";
 import { SparklesCore } from "@/components/ui/sparkles";
 import styles from "./HomeProjects.module.css";
 
-gsap.registerPlugin(ScrollTrigger, useGSAP);
+if (typeof window !== "undefined") gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 const HOME_PROJECT_COUNT = 4;
 

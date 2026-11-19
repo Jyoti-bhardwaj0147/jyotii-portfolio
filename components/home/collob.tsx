@@ -9,7 +9,7 @@ import useReducedMotion from "@/hooks/useReducedMotion";
 import { techStack } from "@/lib/data";
 import { StackIcon } from "./stackIcons";
 
-gsap.registerPlugin(ScrollTrigger, useGSAP);
+if (typeof window !== "undefined") gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 const steps = [
   { label: "Strategy", Icon: Compass },

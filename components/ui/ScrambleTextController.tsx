@@ -4,7 +4,7 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrambleTextPlugin } from "gsap/ScrambleTextPlugin";
 
-gsap.registerPlugin(ScrambleTextPlugin, useGSAP);
+if (typeof window !== "undefined") gsap.registerPlugin(ScrambleTextPlugin, useGSAP);
 
 export default function ScrambleTextController() {
   useGSAP((_, contextSafe) => {

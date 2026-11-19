@@ -5,7 +5,7 @@ import gsap from "gsap";
 import { useEffect, useRef, useState } from "react";
 import useReducedMotion from "@/hooks/useReducedMotion";
 
-gsap.registerPlugin(useGSAP);
+if (typeof window !== "undefined") gsap.registerPlugin(useGSAP);
 
 const sessionStorageKey = "jyotii-intro-seen";
 export const introLoaderCompleteEvent = "jyotii-intro-loader-complete";

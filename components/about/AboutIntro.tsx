@@ -5,7 +5,7 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import useReducedMotion from "@/hooks/useReducedMotion";
 
-gsap.registerPlugin(useGSAP);
+if (typeof window !== "undefined") gsap.registerPlugin(useGSAP);
 
 export default function AboutIntro({ children }: { children: ReactNode }) {
   const sectionRef = useRef<HTMLElement>(null);

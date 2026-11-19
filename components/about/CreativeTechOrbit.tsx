@@ -7,7 +7,7 @@ import { CodeXml } from "lucide-react";
 import { siNextdotjs, siReact, siTypescript, siTailwindcss, siFigma, siGsap, siNodedotjs, siPostgresql, type SimpleIcon } from "simple-icons";
 import { motion, useReducedMotion } from "motion/react";
 
-gsap.registerPlugin(useGSAP);
+if (typeof window !== "undefined") gsap.registerPlugin(useGSAP);
 
 interface OrbitTechnology {
   name: string;

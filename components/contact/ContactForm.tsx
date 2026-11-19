@@ -39,7 +39,7 @@ export default function ContactForm() {
         body: JSON.stringify({ ...values, website: formData.get("website") ?? "" }),
         signal: AbortSignal.timeout(20000),
       });
-      const result = await response.json();
+      const result = await response.json() as { success?: boolean; errors?: ContactErrors; error?: string };
       if (!response.ok || result.success !== true) {
         if (result.errors) {
           setErrors(result.errors);

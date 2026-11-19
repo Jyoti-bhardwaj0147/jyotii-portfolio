@@ -15,6 +15,6 @@ Enquiries go to `Jyoti.kumari174315@gmail.com`, with the visitor as Reply-To. A 
 
 Validation runs in both the browser and API. Failed submissions retain the entered values. Retries reuse an idempotency key, protecting against duplicate sends when a response is lost. The hidden website field is a basic spam trap, not comprehensive bot protection; use your hosting provider's rate limiting for a public deployment if needed.
 
-Deploy with a Next.js server/runtime supporting route handlers. Test live delivery after setting valid credentials and a verified sender: submit an enquiry, check both inboxes and Reply-To addresses, then review delivery in Resend.
+For Cloudflare Workers, both variables are declared as secret bindings in `cloudflare.config.ts`. Set their values on the Worker before deploying; vinext does not copy `.env.local` into production. Test live delivery after setting valid credentials and a verified sender: submit an enquiry, check both inboxes and Reply-To addresses, then review delivery in Resend.
 
 References: https://resend.com/docs/api-reference/emails/send-batch-emails and https://resend.com/docs/dashboard/domains/introduction

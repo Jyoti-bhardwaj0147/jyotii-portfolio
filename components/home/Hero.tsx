@@ -10,7 +10,7 @@ import useReducedMotion from "@/hooks/useReducedMotion";
 import { CometCard } from "@/components/ui/comet-card";
 import { introLoaderCompleteEvent } from "./IntroLoader";
 
-gsap.registerPlugin(useGSAP);
+if (typeof window !== "undefined") gsap.registerPlugin(useGSAP);
 
 const headline = ["Hey", "I'm Jyotii"];
 

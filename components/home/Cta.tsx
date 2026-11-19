@@ -9,7 +9,7 @@ import { BackgroundBeams } from "../ui/background-beams";
 import useReducedMotion from "@/hooks/useReducedMotion";
 import { useRef } from "react";
 
-gsap.registerPlugin(ScrollTrigger, useGSAP);
+if (typeof window !== "undefined") gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 export default function Cta() {
   const router = useRouter();

@@ -49,9 +49,10 @@ export const projects: Project[] = [
     title: "Portfolio",
     description:
       "A portfolio of Next.js projects built with clean interfaces, smooth motion, and attention to detail.",
-    stackTags: ["Next.js", "GSAP", "Three.js","Tailwind","Resend", "Framer Motion", "Vercel","React"],
+    stackTags: ["Next.js", "GSAP", "Three.js","Tailwind","Resend", "Framer Motion","React"],
     imageSrc: "/images/projects/project-4-v1.png",
     imageAlt: "Porfolio Jyotii next.js developer designer preview",
+    href: "https://jyotiibhardwaj.com/",
   },
   {
     id: "the-new-local",

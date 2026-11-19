@@ -8,7 +8,7 @@ import useReducedMotion from "@/hooks/useReducedMotion";
 import { StackIcon } from "@/components/home/stackIcons";
 import { creativeTools, techStack } from "@/lib/data";
 
-gsap.registerPlugin(ScrollTrigger, useGSAP);
+if (typeof window !== "undefined") gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 const TOOL_REVEAL_DURATION = 0.65;
 const TOOL_REVEAL_STAGGER = 0.12;

@@ -4,7 +4,7 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { SplitText } from "gsap/SplitText";
 
-gsap.registerPlugin(SplitText, useGSAP);
+if (typeof window !== "undefined") gsap.registerPlugin(SplitText, useGSAP);
 
 export default function LettersFlipping() {
   useGSAP(() => {
@@ -34,7 +34,8 @@ export default function LettersFlipping() {
               after.setAttribute("aria-hidden", "true");
               after.innerHTML = content;
 
-              word.append(before, after);
+              word.appendChild(before);
+              word.appendChild(after);
             });
           },
         });

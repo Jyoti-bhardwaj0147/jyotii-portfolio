@@ -134,9 +134,9 @@ export function WeatherCard() {
     fetch(url, { signal: controller.signal })
       .then((response) => {
         if (!response.ok) throw new Error("Weather request failed");
-        return response.json();
+        return response.json() as Promise<{ current?: { temperature_2m?: number; weather_code?: number; is_day?: number }; daily?: { temperature_2m_max?: number[]; temperature_2m_min?: number[] } }>;
       })
-      .then((data) => {
+      .then((data: { current?: { temperature_2m?: number; weather_code?: number; is_day?: number }; daily?: { temperature_2m_max?: number[]; temperature_2m_min?: number[] } }) => {
         const current = data.current;
         const daily = data.daily;
         if (
