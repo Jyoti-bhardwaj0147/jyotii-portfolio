@@ -1,3 +1,4 @@
+import { SITE_DESCRIPTION, SITE_NAME, SITE_URL } from "@/lib/seo";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import Script from "next/script";
@@ -27,8 +28,13 @@ const playfairDisplay = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Jyotii | Freelance Next.js Developer",
-  description: "Jyotii is a freelance Next.js developer crafting fast, expressive digital experiences.",
+  metadataBase: new URL(SITE_URL),
+  title: "Jyotii Bhardwaj | Next.js Developer & Designer",
+  applicationName: SITE_NAME,
+  authors: [{ name: SITE_NAME, url: SITE_URL }],
+  keywords: ["Jyotii Bhardwaj", "freelance Next.js developer", "React developer", "web designer", "UI/UX designer", "GSAP animation", "responsive web development"],
+  robots: { index: true, follow: true },
+  description: SITE_DESCRIPTION,
   icons: {
     icon: "/favicon.webp",
   },

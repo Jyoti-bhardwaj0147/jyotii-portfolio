@@ -53,13 +53,13 @@ export default function Footer({ pinned = false }: { pinned?: boolean }) {
       ),
       href: "https://wa.me/917018064180",
     },
-    // {
-    //   title: "Email",
-    //   icon: (
-    //     <IconMail className="h-full w-full text-neutral-500 dark:text-neutral-300" />
-    //   ),
-    //   href: "#",
-    // },
+    {
+      title: "Email",
+      icon: (
+        <IconMail className="h-full w-full text-neutral-500 dark:text-neutral-300" />
+      ),
+      href: "mailto:jyotiibhardwaj11@gmail.com",
+    },
     {
       title: "Discord",
       icon: (

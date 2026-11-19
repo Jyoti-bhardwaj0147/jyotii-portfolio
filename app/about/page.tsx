@@ -1,4 +1,6 @@
-﻿import type { Metadata } from "next";
+import { ProfilePageJsonLd } from "next-seo";
+import { SITE_URL, SITE_NAME } from "@/lib/seo";
+import { pageMetadata } from "@/lib/seo";
 import Footer from "@/components/footer/Footer";
 import Header from "@/components/header/Header";
 import AboutTools from "@/components/about/AboutTools";
@@ -6,10 +8,6 @@ import AboutBento from "@/components/about/AboutBento";
 import AboutAside from "@/components/about/AboutAside";
 import AboutIntro from "@/components/about/AboutIntro";
 
-export const metadata: Metadata = {
-  title: "About | Jyotii Bhardwaj",
-  description: "Meet Jyotii Bhardwaj, a design-minded Next.js developer based in India and working with clients worldwide.",
-};
 
 async function getContributionTotal(year: number): Promise<number | null> {
   try {
@@ -27,12 +25,15 @@ async function getContributionTotal(year: number): Promise<number | null> {
   }
 }
 
+export const metadata = pageMetadata("/about", "About Jyotii Bhardwaj | Next.js Developer & Designer", "Meet Jyotii Bhardwaj, a freelance Next.js developer and UI/UX designer in India creating responsive websites and animated experiences for clients worldwide.");
+
 export default async function AboutPage() {
   const contributionYear = new Date().getUTCFullYear();
   const contributionTotal = await getContributionTotal(contributionYear);
 
   return (
     <>
+      <ProfilePageJsonLd mainEntity={{ "@type": "Person", name: SITE_NAME, url: `${SITE_URL}/about`, image: `${SITE_URL}/images/jyotii-bhardwaj.png`, description: "Freelance Next.js developer and designer", sameAs: ["https://github.com/Jyoti-bhardwaj0147", "https://www.linkedin.com/in/jyotii-bhardwaj/"] }} />
       <Header />
       <main id="top" className="flex-1 bg-background">
         <div className="mx-auto max-w-7xl px-5 pb-20 pt-32 sm:px-8 sm:pb-24 sm:pt-40 lg:px-10">

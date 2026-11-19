@@ -1,14 +1,10 @@
-﻿import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import { ArrowUpRight } from "lucide-react";
 import Header from "@/components/header/Header";
 import ContactForm from "@/components/contact/ContactForm";
 import GlobalCollaboration from "@/components/contact/GlobalCollaboration";
 import { contact } from "@/lib/data";
 
-export const metadata: Metadata = {
-  title: "Contact | Jyotii Bhardwaj",
-  description: "Get in touch with Jyotii Bhardwaj about your next website or digital experience.",
-};
 
 const socialLinks = [
   { label: "GitHub", href: "https://github.com/Jyoti-bhardwaj0147" },
@@ -16,6 +12,8 @@ const socialLinks = [
   { label: "Facebook", href: "https://www.facebook.com/bhardwajjyotii1177/" },
   { label: "WhatsApp", href: contact.whatsapp },
 ];
+
+export const metadata = pageMetadata("/contact", "Contact Jyotii Bhardwaj | Freelance Next.js Developer", "Discuss your next website with Jyotii Bhardwaj. Get in touch for freelance Next.js development, React websites, UI/UX design, and GSAP animations.");
 
 export default function ContactPage() {
   return (
