@@ -10,7 +10,9 @@ const socialLinks = [
   { label: "GitHub", href: "https://github.com/Jyoti-bhardwaj0147" },
   { label: "LinkedIn", href: "https://www.linkedin.com/in/jyotii-bhardwaj/" },
   { label: "Facebook", href: "https://www.facebook.com/bhardwajjyotii1177/" },
+  { label: "Instagram", href: "https://www.instagram.com/jyotiibhardwaj17/" },
   { label: "WhatsApp", href: contact.whatsapp },
+  { label: "Call Me", href: "tel:+917018064180" },
 ];
 
 export const metadata = pageMetadata("/contact", "Contact Jyotii Bhardwaj | Freelance Next.js Developer", "Discuss your next website with Jyotii Bhardwaj. Get in touch for freelance Next.js development, React websites, UI/UX design, and GSAP animations.");
