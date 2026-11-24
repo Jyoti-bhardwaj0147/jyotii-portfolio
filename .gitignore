@@ -35,6 +35,8 @@ yarn-error.log*
 .env*
 .dev.vars*
 /docs/copilot-prompt.md
+/docs/contact-email.md
+/docs/seo.md
 
 
 # vercel
