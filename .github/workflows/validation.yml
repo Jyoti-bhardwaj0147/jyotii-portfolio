@@ -1,0 +1,53 @@
+name: Scheduled validation
+
+on:
+  schedule:
+    - cron: "52 6 * * 1-6" # 12:22 PM Asia/Kolkata, Monday-Saturday
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: scheduled-validation
+  cancel-in-progress: false
+
+jobs:
+  validate:
+    if: github.repository == 'Jyoti-bhardwaj0147/jyotii-portfolio' && github.ref_name == github.event.repository.default_branch
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.repository.default_branch }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npx next typegen && npx tsc --noEmit
+      - run: npm run lint
+      - run: node --test --test-isolation=none tests/*.test.mjs
+      - run: npm run build
+      - run: npm run build:vinext
+      - name: Record and commit successful validation
+        env:
+          BRANCH: ${{ github.event.repository.default_branch }}
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          git config user.name "Jyoti-bhardwaj0147"
+          git config user.email "jyoti.kumari174315@gmail.com"
+          git fetch origin "$BRANCH"
+          test "$(git rev-parse HEAD)" = "$(git rev-parse FETCH_HEAD)"
+          mkdir -p docs
+          printf '# Latest successful validation\n\n- Checked at: %s\n- Source commit: %s\n- Checks: TypeScript, ESLint, tests, Next.js build, Vinext build\n- Run: https://github.com/%s/actions/runs/%s\n' \
+            "$(date -u '+%Y-%m-%d %H:%M:%S UTC')" "$(git rev-parse HEAD)" "$GITHUB_REPOSITORY" "$GITHUB_RUN_ID" > docs/validation-status.md
+          git add -- docs/validation-status.md
+          git diff --cached --check
+          git diff --cached --quiet && exit 0
+          git commit -m "chore: record successful project validation"
+          test "$(git show -s --format='%an|%ae|%cn|%ce' HEAD)" = "Jyoti-bhardwaj0147|jyoti.kumari174315@gmail.com|Jyoti-bhardwaj0147|jyoti.kumari174315@gmail.com"
+          git push origin "HEAD:$BRANCH"
+          test "$(gh api "repos/$GITHUB_REPOSITORY/commits/$(git rev-parse HEAD)" --jq '.author.login')" = "Jyoti-bhardwaj0147"

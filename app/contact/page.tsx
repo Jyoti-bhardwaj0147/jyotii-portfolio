@@ -49,7 +49,7 @@ export default function ContactPage() {
                 </a>
               ))}
             </div>
-          </nav>
+          </nav>          
         </div>
       </main>
     </>
