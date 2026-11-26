@@ -38,6 +38,13 @@ yarn-error.log*
 /docs/contact-email.md
 /docs/seo.md
 
+# Local AI development instructions
+/AGENTS.md
+/CLAUDE.md
+/skills-lock.json
+
+/cloudflare.config.ts
+/vite.config.ts
 
 # vercel
 .vercel
